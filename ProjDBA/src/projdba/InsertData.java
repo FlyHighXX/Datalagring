@@ -13,6 +13,10 @@ package projdba;
  ** Last modified by nikos on 2015-10-07
  */
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -111,6 +115,35 @@ public class InsertData
             String param4;
             String param5;
             
+            String path = "Names.txt";
+            File file = new File(path);
+            FileReader filereader = new FileReader(file);
+            BufferedReader buffread = new BufferedReader(filereader);
+            String line = buffread.readLine();
+            StringBuilder strbuild = new StringBuilder();
+            while(line != null){
+                query = "INSERT INTO Person(namn) VALUES(?)";
+                stmt = con.prepareStatement(query);
+		stmt.setString(1,line);
+                stmt.executeUpdate();
+                line = buffread.readLine();
+            }
+            System.out.println(strbuild.toString());
+            //FileWriter fd = new FileWriter(path);
+            //fd.flush();
+            //fd.write(strbuild.toString());
+            //System.out.println(file.toString());
+            
+            /*final String path = "Names.txt";
+            File file = new File(path);
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line = bufferedReader.readLine();
+            while(line != null){
+               System.out.println(line);
+               line = bufferedReader.readLine();
+               
+            }*/
             
             //param3 = in.nextLine();
             //param4 = in.nextLine();
@@ -120,9 +153,9 @@ public class InsertData
             // POSITION query = "INSERT INTO Position VALUES(?)";
             // TURNERING query = "INSERT INTO Turnering VALUES(?,?,?)";
             // MATCH query = "INSERT INTO Match (startDatumTid,arena) VALUES(?,?)";
-            query = "INSERT INTO Person(namn) VALUES(?)";
+            /*query = "INSERT INTO Person(namn) VALUES(?)";
             stmt = con.prepareStatement(query);
-            stmt.setString(1,"shoo");
+            stmt.setString(1,"shoo");*/
             
             /* LÄGG TILL TURNERING
             SimpleDateFormat df = new SimpleDateFormat("dd-mm-yyyy");
@@ -151,9 +184,9 @@ public class InsertData
             //stmt.setString(4,param4);
             //stmt.setString(5,param5);
             
-            stmt.executeUpdate();
-            System.err.println("En ny arena har lagts till");
-            stmt.close();
+           /* stmt.executeUpdate();
+            System.err.println("En ny arena har lagts till");*/
+            //stmt.close();
     }
 
     public static void main(String[] argv) throws Exception
