@@ -21,7 +21,7 @@ public class InsertData
     // DB connection variable
     static protected Connection con;
     // DB access variables
-    private String URL = "jdbc:ucanaccess:projdb.accdb";
+    private String URL = "jdbc:ucanaccess://C:/Git/Datalagring/projDBA/src/projdba/projdb.accdb";
     private String driver = "net.ucanaccess.jdbc.UcanaccessDriver";
     private String userID = "root";
     private String password = "bunny";
