@@ -110,10 +110,7 @@ public class InsertData
             String param3;
             String param4;
             String param5;
-
-            java.util.Scanner in = new java.util.Scanner(System.in);
-            //param1 = in.nextLine();
-            param2 = in.nextLine();
+            
             
             //param3 = in.nextLine();
             //param4 = in.nextLine();
@@ -122,9 +119,10 @@ public class InsertData
             // ARENA query = "INSERT INTO Arena VALUES(?,?)";
             // POSITION query = "INSERT INTO Position VALUES(?)";
             // TURNERING query = "INSERT INTO Turnering VALUES(?,?,?)";
-            query = "INSERT INTO Match (startDatumTid,arena) VALUES(?,?)";
-
+            // MATCH query = "INSERT INTO Match (startDatumTid,arena) VALUES(?,?)";
+            query = "INSERT INTO Person(namn) VALUES(?)";
             stmt = con.prepareStatement(query);
+            stmt.setString(1,"shoo");
             
             /* LÄGG TILL TURNERING
             SimpleDateFormat df = new SimpleDateFormat("dd-mm-yyyy");
@@ -139,7 +137,7 @@ public class InsertData
             stmt.setDate(3,finalDate2);
             */
             
-            //LÄGG TILL MATCH 
+            /*LÄGG TILL MATCH 
             SimpleDateFormat df = new SimpleDateFormat("dd-mm-yyyy hh:mm");
             String stringDate1 = "01-01-2017 15:00";
             java.util.Date date1 = df.parse(stringDate1);
@@ -148,7 +146,7 @@ public class InsertData
             
             
             
-            stmt.setString(2,param2);
+            stmt.setString(2,param2);*/
             //stmt.setString(3,param3);
             //stmt.setString(4,param4);
             //stmt.setString(5,param5);
