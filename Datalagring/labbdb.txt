@@ -1,0 +1,75 @@
+﻿-- MySQL dump 10.11
+--
+-- Host: localhost    Database: labb
+-- ------------------------------------------------------
+-- Server version	5.0.45-community-nt
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `bil`
+--
+
+DROP TABLE IF EXISTS `bil`;
+CREATE TABLE `bil` (
+  `regnr` varchar(10) NOT NULL,
+  `marke` varchar(20) NOT NULL,
+  `farg` varchar(20) NOT NULL,
+  `agare` int(10) unsigned NOT NULL,
+  PRIMARY KEY  (`regnr`),
+  KEY `FK_bilagare` (`agare`),
+  CONSTRAINT `FK_bilagare` FOREIGN KEY (`agare`) REFERENCES `person` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bil`
+--
+
+LOCK TABLES `bil` WRITE;
+/*!40000 ALTER TABLE `bil` DISABLE KEYS */;
+INSERT INTO `bil` VALUES ('ABC123','VOLVO','blå',1),('BCD234','SAAB','gul',2),('CDE451','FIAT','svart',3),('FFF333','NISSAN','grön',4),('GGH011','AUDI','svart',17),('GGH445','DODGE','brun',6),('JGR344','FIAT','svart',8),('KFS929','FIAT','brun',16),('KGB654','VOLVO','brun',15),('KOOL01','VOLVO','svart',12),('KRF799','AUDI','blå',7),('OKS555','SAAB','vit',18),('OOD001','FIAT','röd',10),('PAD902','NISSAN','grå',10),('PED900','SAAB','grön',13),('RFN754','MERCEDES','svart',19),('SLL989','SAAB','svart',13),('TJJ675','NISSAN','silver',9),('TYY764','NISSAN','vit',14),('UFF220','PEUGEOT','gul',18),('UUU110','PEUGEOT','vit',7);
+/*!40000 ALTER TABLE `bil` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `person`
+--
+
+DROP TABLE IF EXISTS `person`;
+CREATE TABLE `person` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `fnamn` varchar(20) NOT NULL,
+  `enamn` varchar(20) NOT NULL,
+  `stad` varchar(20) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `person`
+--
+
+LOCK TABLES `person` WRITE;
+/*!40000 ALTER TABLE `person` DISABLE KEYS */;
+INSERT INTO `person` VALUES (1,'Lina','Karlsson','Stockholm'),(2,'Lena','Svensson','Lund'),(3,'Lisa','Fredriksson','Uppsala'),(4,'Maria','Bergström','Umeå'),(5,'Karin','Sjödahl','Lund'),(6,'Kristina','Boström','Stockholm'),(7,'Pia','Bengtsson','Stockholm'),(8,'Ulrika','Alfredsson','Lund'),(9,'Maria','Berglund','Stockholm'),(10,'Sara','Ling','Uppsala'),(11,'Kerstin','Kruger','Stockholm'),(12,'Christina','Lambert','Göteborg'),(13,'Greta','Westin','Göteborg'),(14,'Gustav','Westman','Stockholm'),(15,'Peter','Thor','Stockholm'),(16,'Peter','Nordlund','Lund'),(17,'Harald','Olsson','Stockholm'),(18,'Lars-Erik','Pettersson','Göteborg'),(19,'Alexander','Sederlind','Örebro');
+/*!40000 ALTER TABLE `person` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2007-09-01 17:29:18

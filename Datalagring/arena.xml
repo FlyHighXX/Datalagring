@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2016-12-08T16:10:40">
+<Arena>
+<namn>San Siro</namn>
+<plats>Milano</plats>
+</Arena>
+<Arena>
+<namn>Anfield</namn>
+<plats>Liverpool</plats>
+</Arena>
+<Arena>
+<namn>Old Trafford</namn>
+<plats>Manchester</plats>
+</Arena>
+<Arena>
+<namn>Friends Arena</namn>
+<plats>Stockholm</plats>
+</Arena>
+<Arena>
+<namn>Tele2 Arena</namn>
+<plats>Stockholm</plats>
+</Arena>
+</dataroot>

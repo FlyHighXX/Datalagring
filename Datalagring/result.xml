@@ -1,0 +1,6 @@
+<result>
+{
+for $x in //Arenor/Arena/Namn
+return <R>{$x}</R>
+}
+</result>
